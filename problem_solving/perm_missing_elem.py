@@ -14,8 +14,9 @@ def solution(A):
             if A[i] != i+1:
                 return i+1
             i += 1
+        return i+1
     return 1
     
-A = []
+A = [1, 2, 3]
 
 print(solution(A))
