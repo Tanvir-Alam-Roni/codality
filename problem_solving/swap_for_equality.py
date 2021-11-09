@@ -1,3 +1,4 @@
+# O(n^3)
 def swap_solution(A, B):
     l = len(A)
     for i in range(l):
@@ -11,7 +12,23 @@ def swap_solution(A, B):
                 return True
     return False
 
+# O(n^2)
+def slow_solution(A, B):
+    l = len(A)
+    sum_a = sum(A)
+    sum_b = sum(B)
+    for i in range(l):
+        for j in range(l):
+            change = B[j] - A[i]
+            sum_a += change
+            sum_b -= change
+            if sum_a == sum_b:
+                return True
+            sum_a -= change
+            sum_b += change
+    return False
+
 
 a = [4, 2, 2, 3, 1]
 b = [2, 2, 2, 3, 5]
-print(swap_solution(a, b))
+print(slow_solution(a, b))
